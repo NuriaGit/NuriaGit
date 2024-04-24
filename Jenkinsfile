@@ -5,6 +5,17 @@ def texto
 pipeline
 {
   agent any
+
+  options
+  {
+      timeout(time:5, unit: 'MINUTES')
+  }
+  
+  environment 
+  {
+      nombre_archivo = "Ejercicio_3.txt"
+  }
+  
   stages
   {
       stage("Calculos")
@@ -49,8 +60,8 @@ pipeline
           {
               script
               {
-                  writeFile(file: "Ejercicio_3.txt", text: texto)
-                  println "fichero Ejercicio_3.txt generado"
+                  writeFile(file: "${env.nombre_archivo}.txt", text: texto)
+                  println "fichero ${env.nombre_archivo} generado"
               }
           }    
       }
