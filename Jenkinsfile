@@ -49,7 +49,7 @@ pipeline
           {
               script
               {
-                  writeFile(file: "Ejercicio_3".txt", text: texto)
+                  writeFile(file: "Ejercicio_3.txt", text: texto)
                   println "fichero Ejercicio_3.txt generado"
               }
           }    
