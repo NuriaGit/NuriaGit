@@ -60,7 +60,7 @@ pipeline
           {
               script
               {
-                  writeFile(file: "${env.nombre_archivo}.txt", text: texto)
+                  writeFile(file: "${env.nombre_archivo}", text: texto)
                   println "fichero ${env.nombre_archivo} generado"
               }
           }    
