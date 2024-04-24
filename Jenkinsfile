@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 def numero1 = 10
 def numero2 = 2
 def fechaActual
