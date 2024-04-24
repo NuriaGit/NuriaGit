@@ -66,4 +66,31 @@ pipeline
           }    
       }
   }
+  post
+	{
+		always
+		{
+			echo "El pipeline se ejecuto."
+		}
+    
+		failure
+		{
+			echo 'EL pipeline fallo.'
+			script
+			{
+				def errorMessage = currentBuild.rawBuild.getLog(1000).join('\n')
+				echo 'Detalles del error: ${errorMessage}'
+				mail to: "soporte@dominio.com", subject: "Pipeline Fallo", body: "El pipeline no se ejecuto."
+			}
+		}
+    
+		unstable
+		{
+			echo "El pipeline no se ejecuto de forma estable."
+		}
+		success
+		{
+			echo "El pipeline se ejecuto correctamente."        
+		}
+	}
 }
